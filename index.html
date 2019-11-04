@@ -1,0 +1,207 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title> Dennebol </title>
+  <meta name="description" content="Dennebol Studios">
+  <meta name="author" content="Dennebol">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/png" href="mali.png"/>
+  <style>
+    @font-face {
+      font-family: mousse;
+      src: url(mousse.otf);
+    }
+  	body {
+  		font-family: mousse;
+  		margin: 0;
+      background: linear-gradient(180deg, #ece2db 5%, white 20%);
+  	}
+  	.header-container {
+  		background: url('bg-menu.png');
+  		width: 100%;
+  		height: 110px;
+  		padding-top: 5px;
+  		background-repeat: repeat-x;
+  	}
+  	#logo {
+  		height: 60px;
+      font-family: mousse;
+  	}
+  	.content-container {
+  		margin: 0 auto;
+  		width: 75%;
+  	}
+  	.division-container {
+  		display: flex;
+  		flex-direction: row;
+  		height: 400px;
+  		width: 100%;
+  	}
+  	.division-container .division {
+  		flex: 1;
+  		margin-bottom: 20px;
+      overflow-y: auto;
+      overflow-x: hidden;
+  	}
+  	.footer-container {
+  		height: 70px;
+  		background: red;
+  		margin-top: 50px;
+  	}
+
+  	.ml {
+  		margin-right: 10px;
+  	}
+
+  	.mr {
+  		margin-left: 10px;
+  	}
+
+  	.img {
+  		display: flex;
+  		justify-content: center;
+  		align-items: center;
+  		font-size: 34px;
+  		color: white;
+  		text-transform: uppercase;
+  		text-shadow: 0 0 10px #000000, 0 0 30px #000000, 0 0 40px #000000, 0 0 55px #000000, 0 0 75px #000000;
+     text-align: center;
+  	}
+  	.text {
+      font-family: arial;
+  		font-size: 20px;
+  	}
+  	.footer-container {
+  		background: #302429;
+  	}
+  	ul {
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	list-style-type: none;
+  		height: 100%;
+  		margin: 0; 
+  	}
+
+  	ul li {
+  		color: white;
+  		margin: 0 25px;
+  	}
+
+  	ul li a {
+  		color: white;
+  		text-decoration: none;
+  		transition: all ease .3s;
+  	}
+
+  	ul li a:hover {
+  		color: #92745f;
+  	}
+    #mali {
+      height: 20px;
+      margin-left: 7px;
+      position: absolute;
+      margin: 1px 0 0 7px;
+      transition: transform ease .8s;
+    }
+    #mali:hover {
+      transform: rotate(360deg);
+    }
+    .fotr {
+      position: relative;
+    }
+    @media screen and (max-width: 920px) { 
+      .division-container {
+        flex-direction: column;
+        height: fit-content;
+      }
+      .division-container .division {
+        margin: 0 0 20px 0;
+        min-height: 200px;
+        overflow: unset;
+        max-height: unset;
+      }
+      .img {
+        font-size: 20px;
+        background-size: 100% 100% !important; 
+      }
+      .text {
+        font-size: 15px;
+      }
+      ul {
+        padding: 0;
+        justify-content: space-around;
+      }
+      ul li {
+        margin: 0;
+      }
+      .content-container {
+        margin: 0 auto;
+        width: 80%;
+      }
+    }
+    @media screen and (max-width: 919px) and (min-width: 650px) { 
+        .division {
+          min-height: 300px;
+        }
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  let bannerNode = document.querySelector('[alt="www.000webhost.com"]').parentNode.parentNode;
+  bannerNode.parentNode.removeChild(bannerNode);
+  let x = document.querySelectorAll("div");
+  x[x.length-1].parentNode.removeChild(x[x.length-1]);
+});
+  </script>
+  <div class="header-container" style="text-align: center;"> 
+    <div id="logo"> <img src="logo.png" alt="Dennebol studios" style="height: 60px;" /> </div>
+  </div>
+  <div class="content-container"> 
+	<div class="division-container">
+	  	<div class="division ml img" style="background:url('fotka1.png');">
+	  		Card Game Adventure
+	  	</div>
+	  	<div class="division mr text">
+		A group of friends coming together to create an amazing new 3D card game. <br>
+		The game will be crossplatform, available on Android, iOS and PC devices. <br>
+		A free card game adventure with additional cosmetic upgrades <br> <br>
+		
+		Go head to head with your opponent trying to come up on top.<br>
+		Choose a faction whose army will accompany you into battle as you face your foes. <br> <br>
+		Whether it's goblins or elves, mages or beasts, each faction will define which allies you can summon. <br>
+		Drain the lifepoints of your opponent before he finishes you off! <br><br>
+
+		Come joins us in an epic adventure!<br>
+		Demo is coming out soon!<br> <br>
+		<div class="fotr">- The Dennebol Team <img src="mali.png" id="mali"/></div>
+	  	</div>
+	</div>
+	<div class="division-container">
+	  	<div class="division ml img" style="background:url('fotka2.png');">
+	  		Android / iOS / PC
+	  	</div>
+	  	<div class="division mr">
+			<a class="twitter-timeline" data-height="400" href="https://twitter.com/DennebolStudio?ref_src=twsrc%5Etfw%22%3E"> Tweets by DennebolStudio</a> 
+			<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	  	</div>
+	</div>
+  </div>
+  <div class="footer-container"> 
+  	<ul>
+  		<li> Dennebol </li>
+  		<li> <a href="mailto:dennebol.devs@gmail.com"> Email </a> </li>
+  		<li> <a href="https://twitter.com/DennebolStudio"> Twitter </a> </li>
+  	</ul>
+  </div>
+  <div>
+  <div></div>
+</body>
+</html>
