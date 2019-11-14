@@ -1,0 +1,436 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Dennebol</title>
+  <meta name="description" content="Dennebol - The Video Game Company">
+  <meta name="author" content="Dennebol">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    @charset "UTF-8";
+    @font-face {
+      font-family: mousse;
+      src: url("./mousse.otf");
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff8f4;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      z-index: 500;
+      padding: 10px 13vw;
+      overflow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background: white;
+      box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      box-sizing: border-box;
+      background: #e0d2c9;
+      border-bottom: 1px solid #b9a48f;
+    }
+    .header #logo {
+      height: 50px;
+      transition: transform ease 0.2s;
+    }
+    .header #logo:hover {
+      transform: scale(1.1);
+    }
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0;
+    }
+    ul:not(.col) {
+      flex-direction: row;
+    }
+
+    .col {
+      flex: 1;
+      max-width: 300px;
+    }
+    .col.col-center {
+      flex: 3;
+      text-align: center;
+    }
+
+    .header ul li {
+      font-family: mousse;
+      text-decoration: none;
+      font-size: 20px;
+      transition: color ease 0.2s, transform ease 0.2s;
+    }
+    .header ul li a {
+      color: black;
+      font-family: mousse;
+      text-decoration: none;
+      font-size: 20px;
+      transition: color ease 0.2s, transform ease 0.2s;
+    }
+    @media only screen and (min-width: 768px) {
+      .header ul li:not(.no-animate):nth-child(even):hover {
+        transform: rotate(-3.5deg) scale(1.15);
+      }
+      .header ul li:not(.no-animate):nth-child(odd):hover {
+        transform: rotate(4.5deg) scale(1.15);
+      }
+      .header ul li:hover a {
+        color: #a36634;
+      }
+      .header ul li:hover.youtube a {
+        color: red;
+      }
+      .header ul li:hover.twitter a {
+        color: #38A1F3;
+      }
+      .header ul li:hover.hot:hover {
+        transform: rotate(2deg) scale(1.5) !important;
+      }
+      .header ul li:hover.hot:hover:after {
+        content: "!";
+        position: absolute;
+        color: purple;
+      }
+      .header ul li:hover.hot:hover a {
+        color: purple;
+      }
+    }
+
+    .footer {
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      height: 70px;
+    }
+
+    .content {
+      margin: 125px 0;
+      padding: 0 13vw;
+    }
+    .content .columned-content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 30px;
+    }
+    .content .columned-content .dev-posts {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .content .columned-content .dev-posts .post {
+      width: 100%;
+      position: relative;
+      border-radius: 2px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .content .columned-content .dev-posts .post img, .content .columned-content .dev-posts .post video {
+      width: 100%;
+      height: 100%;
+    }
+    .content .columned-content .dev-posts .post h1 {
+      margin: 8px 0;
+      font-family: mousse;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 42px;
+      text-shadow: 0 0 10px #000000, 0 0 30px #000000, 0 0 40px #000000, 0 0 55px #000000, 0 0 75px #000000;
+    }
+    @media only screen and (max-width: 1200px) {
+      .content .columned-content .dev-posts .post h1 {
+        font-size: 30px;
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      .content .columned-content .dev-posts .post h1 {
+        font-size: 24px;
+      }
+    }
+    .content .columned-content .dev-posts .post h4 {
+      margin: 8px 0;
+    }
+    .content .columned-content .twitter-feed {
+      flex: 1;
+    }
+    .content .columned-content .twitter-feed .description {
+      position: relative;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .content .columned-content .twitter-feed .description #mali {
+      height: 20px;
+      position: absolute;
+    }
+    .content .section:first-of-type h1 {
+      margin-top: 0;
+    }
+    .content .section h1 {
+      font-family: mousse;
+      margin: 32px 0 16px 0;
+    }
+    .content .section p {
+      transition: transform ease 0.2s;
+      transform-origin: left;
+    }
+    .content .section p:not(.normal):before {
+      font-family: FontAwesome;
+      font-size: 10px;
+      content: " ";
+    }
+    .content .section p:not(.normal):hover {
+      transform: translateX(15px);
+    }
+    .content .section p > i {
+      color: #d27432;
+    }
+    @media only screen and (max-width: 1000px) {
+      .content .section h1 {
+        font-size: 24px;
+      }
+      .content .section p {
+        font-size: 14px;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      .is-hidden-mobile {
+        display: none !important;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      .is-hidden-desktop {
+        display: none !important;
+      }
+    }
+
+    .hamburger-menu {
+      font-size: 30px;
+      display: flex;
+      /* justify-content: center; */
+      align-items: center;
+      flex-direction: row-reverse;
+    }
+    .hamburger-menu .dropdown {
+      z-index: 500;
+      background: white;
+      position: absolute;
+      top: 78px;
+      text-align: right;
+      height: 90px;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      right: 0;
+      text-align: center;
+      box-sizing: border-box;
+      background: #e0d2c9;
+      border-bottom: 1px solid #b9a48f;
+      padding-bottom: 11px;
+      transition: transform ease 0.3s, opacity ease 0.3s;
+      transform: scaleY(0);
+      opacity: 0;
+      transform-origin: top center;
+    }
+    .hamburger-menu .dropdown .col {
+      margin: 0;
+    }
+    .hamburger-menu .dropdown.show {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+
+    @media only screen and (max-width: 1000px) {
+      .header {
+        padding: 12px 25px;
+      }
+
+      .content {
+        padding: 12px 25px;
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      .content .columned-content {
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      .header .col {
+        min-width: unset;
+        flex: unset;
+        width: fit-content;
+      }
+    }
+
+    /*# sourceMappingURL=style.css.map */
+  </style>
+</head>
+
+<body>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/615975797c.js" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+  <script>
+    $(window).on("load", function(){
+      let counter = 0;
+      $("#hamburger").on('click', function() {
+        console.log("oj")
+        //if()
+        if(counter++ % 2 == 0) {
+          $(this).addClass("fa-times");
+          $("div.dropdown").removeClass("fa-bars").addClass("show");
+        }
+        else {
+          $(this).removeClass("fa-times");
+          $("div.dropdown").removeClass("show").addClass("fa-bars");
+        }
+      });
+
+      let asg = document.querySelector('[alt="www.000webhost.com"]');
+      if(asg) {
+        let bannerNode = asg.parentNode.parentNode;
+        bannerNode.parentNode.removeChild(bannerNode);
+        let x = document.querySelectorAll("div");
+        x[x.length-1].parentNode.removeChild(x[x.length-1]);
+      }
+    });
+  </script>
+  <div class="header">
+  	<div class="col col-left is-hidden-mobile">
+  		<ul> 
+  			<li class="hot"> <a href="./void.html">Void</a> </li>
+  			<li> <a href="#">About Us</a> </li>
+  			<li> <a href="#">Contact</a> </li>
+  		</ul>
+  	</div>
+  	<div class="col col-center">
+	  	<a href="#"> 
+        <img id="logo" src="./logo.png" />
+  	  </a>
+    </div>
+  	<div class="col col-right is-hidden-mobile">
+  		<ul> 
+  			<li class="no-animate"> Reach us at: </li>
+  			<li> <a href="mailto:dennebol.devs@gmail.com"><i class="fas fa-envelope-open-text"></i></a> </li>
+  			<li class="youtube"> <a href="#"><i class="fab fa-youtube"></i></a> </li>
+  			<li class="twitter"> <a href="https://www.twitter.com/DennebolStudio" target="_blank"><i class="fab fa-twitter"></i></a> </li>
+  		</ul>
+  	</div>
+    <div class="is-hidden-desktop hamburger-menu">
+      <i class="fas fa-bars" id="hamburger"></i>
+      <div class="dropdown" id="dropdown">
+        <ul class="col"> 
+          <li class="hot"> <a href="#">Void</a> </li>
+          <li> <a href="#">About Us</a> </li>
+          <li> <a href="#">Contact</a> </li>
+        </ul> 
+      </div>
+    </div>
+  </div>
+  
+  <div class="content">
+    <div class="columned-content">
+      <div class="dev-posts">
+        <div class="post">
+          <h1> Digital Card Game </h1>
+          <img src="./cover.png" alt="Cards" />
+        </div>
+
+        <div class="post">
+          <video poster="./thumb2.jpg" controls>
+            <source src="./SGC_02.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="post">
+          <h1> Join us on This Adventure</h1>
+          <video poster="./thumb1.jpg" controls>
+            <source src="./clip.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+      </div>
+      <div class="twitter-feed">
+        <div class="description">
+          <div class="section">
+            <h1> Who are we? </h1>
+            <p> A group of friends! 😊 </p>
+            <p> A group of card game enthusiasts ❤️ </p>
+            <p> A group of people who came together create a new and exciting card game experience 🎮 </p>
+            <p> A group of computer science students 🤓 </p>
+          </div>
+
+          <div class="section">
+            <h1> What's Void? </h1>
+            <p> A project we're working on 👷 </p>
+            <p> An exciting digital card game 🃏 </p>
+            <p> A cross platform solution 📱 💻 </p>
+            <p> The next big thing! 😄 </p>
+          </div>
+
+          <div class="section">
+            <h1> So, what can I expect? </h1>
+            <p> A strategic battle of the wits 🧠 </p>
+            <p> A multiplayer battle between you and a foe 🔗 </p>
+            <p> A race to diminish your opponents health ⚔️ </p>
+            <p> A crusade of factions whose armies are led by You 🧝🧙 </p>
+          </div>
+
+          <div class="section">
+            <h1> Want to hear our Pitch? </h1>
+            <p class="normal"> 
+              We are a group of friends coming together to create an amazing new 3D card game. <br>
+              The game will be crossplatform, available on Android, iOS and PC devices. <br>
+              A free card game adventure with additional cosmetic upgrades <br> <br>
+              
+              Go head to head with your opponent trying to come up on top.<br>
+              Choose a faction whose army will accompany you into battle as you face your foes. <br> <br>
+              Whether it's goblins or elves, mages or beasts, each faction will define which allies you can summon. <br>
+              Drain the lifepoints of your opponent before he finishes you off! <br><br>
+
+              Come joins us in an epic adventure!<br>
+              Demo is coming out soon!<br> <br>  </p>
+          </div>
+          <div class="section">
+            <h1> Here's our Tweets! </h1>
+            <p class="normal"> 
+              <a class="twitter-timeline" href="https://twitter.com/DennebolStudio?ref_src=twsrc%5Etfw%22%3E"> Tweets by DennebolStudio</a> 
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <ul>
+      <li> Made with Love ❤️ Dennebol 2019 </li>
+    </ul>
+  </div>
+  <div> </div><div> </div>
+</body>
+</html>

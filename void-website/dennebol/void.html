@@ -1,0 +1,94 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title> Void </title>
+  <meta name="description" content="Dennebol Studios - Void">
+  <meta name="author" content="Dennebol">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    @font-face {
+      font-family: main;
+      src: url(font.otf);
+    }
+    body {
+      margin: 0;
+      background-color: #1b0c22;
+      transition: all linear 5s
+    }
+    .content-container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .soon {
+      margin-top: 100px;
+      opacity: .5;
+      transition: all ease .3s;
+      max-width: 100%;
+    }
+    .logo {
+      max-width: 100%;
+    }
+    .soon:hover {
+      opacity: 1;
+    }
+    .kvazi-footer {
+      position: absolute;
+      bottom: 0;
+      color: #636363;
+      font-family: arial, serif;
+      font-size: 12px;
+      width: 100%;
+    }
+    ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+    li {
+      margin: 0 15px;
+    }
+    a {
+      color: #636363;
+      transition: all ease .5s;
+      text-decoration: none;
+    }
+    a:hover {
+      color: white;
+    }
+  </style>
+</head>
+<body id="body">
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let bannerNode = document.querySelector('[alt="www.000webhost.com"]').parentNode.parentNode;
+        bannerNode.parentNode.removeChild(bannerNode);
+        let x = document.querySelectorAll("div");
+        x[x.length-1].parentNode.removeChild(x[x.length-1]);
+        
+        let y = document.getElementById('body');
+        y.style.backgroundColor = "black";
+    });
+  </script>
+  <div class="content-container">
+    <img src="logovoid.png" class="logo" /> 
+    <img src="soon.png" class="soon" />
+  </div>
+  <div class="kvazi-footer">
+    <ul>
+      <li> Dennebol </li>
+      <li> <a href="mailto:dennebol.devs@gmail.com"> Email </a> </li>
+      <li> <a href="https://twitter.com/DennebolStudio"> Twitter </a> </li>
+    </ul>
+  </div>
+  <div> </div>
+</body>
+</html>
